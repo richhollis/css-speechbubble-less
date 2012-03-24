@@ -1,0 +1,54 @@
+/**
+ * CSS Speech Bubble
+ */
+
+/* Credit : http://nicolasgallagher.com */
+
+@import "speechbubble/variables";
+@import "elements/elements";
+
+.skewX(@deg: -15deg) {
+	-webkit-transform:skewX(@deg);
+       -moz-transform:skewX(@deg);
+        -ms-transform:skewX(@deg);
+         -o-transform:skewX(@deg);
+            transform:skewX(@deg);
+}
+
+.quote {
+    position:relative;
+    width: 100%;
+    padding: 15px 25px 20px;
+    margin: 20px auto;
+    font: italic 26px/1.4 Georgia, serif;
+    color: @speechBubbleText;
+    background: @speechBubbleBackground;
+	margin-bottom: @bubblePointHeight + @bubblePointPadding;
+	
+	:after {
+		content:"";
+		position: absolute;
+		top: 100%;
+		right: 25px;
+		border-width: @bubblePointHeight @bubblePointHeight 0 0;
+		border-style: solid;
+		border-color: @speechBubbleBackground transparent;
+		/* css3 extras */
+		.skewX(@bubblePointAngle);
+	}
+	
+	.credit {
+		margin:1em 0 0;
+		font:14px/1.2 Arial, sans-serif;
+		
+		:before {
+			content:"— ";
+		}
+	}
+
+	blockquote, p {
+		border: 0;
+		padding:0; 
+		margin:0;
+	}
+}
