@@ -4,8 +4,7 @@
 
 /* Credit : http://nicolasgallagher.com */
 
-@import "speechbubble/variables";
-@import "speechbubble/elements/elements";
+/* Requires LESS Elements to be included */
 
 .skewX(@deg: -15deg) {
 	-webkit-transform:skewX(@deg);
@@ -15,12 +14,13 @@
             transform:skewX(@deg);
 }
 
-.quote {
+.quote(@speechBubbleText: #fff, @speechBubbleBackground : #245991, @padding: 25px, @bubblePointHeight: 20px, @bubblePointPadding: 0px, @bubblePointAngle: -15deg)
+{
     position:relative;
     width: 100%;
-    padding: 15px 25px 20px;
+    padding: @padding - (@padding*.75) @padding @padding - (@padding*.5);
     margin: 20px auto;
-    font: italic 26px/1.4 Georgia, serif;
+    font-family: 'Open Sans Condensed', sans-serif; 
     color: @speechBubbleText;
     background: @speechBubbleBackground;
 	margin-bottom: @bubblePointHeight + @bubblePointPadding;
